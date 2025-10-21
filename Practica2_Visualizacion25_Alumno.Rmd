@@ -287,7 +287,12 @@ ggplot(data=Dosis.Medicina2, aes(x=Dosis, y=Efectividad, group=Complemento)) +
 * Almacena en formato **pdf** el gráfico resultante en un fichero denominado ``Ejercicio4.pdf``.
 
 ```{r Solucion ejercicio 4}
-
+load('data/Ejercicio4_Data.Rdata')
+grafico1 <- ggplot(data=DatosEjer4, aes(x=DatosEjer4$Fecha, y=DatosEjer4$Ventas, color=DatosEjer4$Fabricante))+geom_point()
+grafico2 <- grafico1 + geom_line(aes(linetype=DatosEjer4$Fabricante))
+grafico3 <- grafico2 + ggtitle('Ventas mensuales de diferentes compañías tecnológicas')
+grafico3
+ggsave('figs/Ejercicio4.pdf')
 ```
 
 ## Barras de error con **ggplot2**
@@ -330,8 +335,8 @@ Añadir barras de error a un gráfico de línea.
 * Almacena en formato **pdf** el gráfico resultante en un fichero denominado ``Ejercicio5.pdf``.
 
 ```{r Solucion ejercicio 5}
-
-
+load('data/Experimento.RData')
+ggplot(data=Experimento, aes(x=Dosis, y=Altura)) + geom_point()+geom_line(aes(linetype = Complemento))
 ```
 
 ### **Ejercicio 6 **
@@ -343,8 +348,8 @@ El fichero ``iceRiver.RData`` contiene información del caudal de dos ríos isla
   * Almacena en formato **pdf** el gráfico resultante en un fichero denominado ``Ejercicio5.pdf``.
 
 ```{r Solucion ejercicio 6 }
-
-
+load('data/iceRiver.RData')
+ggplot(data=ice.river.df, )
 ```
 
 
