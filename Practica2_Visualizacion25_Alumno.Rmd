@@ -157,7 +157,14 @@ p2
 * Almacena en formato **pdf** el gráfico resultante en un fichero denominado ``Ejercicio1.pdf``.
 
 ```{r Solucion ejercicio 1}
-
+load('data/weatherAUS.RData')
+grafico1 <- ggplot(data=ds, mapping=aes(x=MinTemp, y=MaxTemp)) + geom_point()
+grafico1
+grafico2 <- ggplot(data=ds, mapping=aes(x=MinTemp, y=MaxTemp,color=RainTomorrow))+geom_point()
+grafico2+scale_color_manual(values=c('blue','green'))
+grafico2
+grafico3 <- grafico2 + ggtitle('Máxima temperatura frente a mínima temperatura')
+grafico3
 ggsave('figs/Ejercicio1.pdf')
 ```
 
@@ -170,7 +177,11 @@ ggsave('figs/Ejercicio1.pdf')
 * Almacena en formato **pdf** el gráfico resultante en un fichero denominado ``Ejercicio2.pdf``.
 
 ```{r Solucion ejercicio 2}
-
+grafico <- ggplot(data=ds, aes(x=Temp9am, y=Pressure9am))+geom_point()
+grafico1 <- ggplot(data=ds, aes(x=Temp9am, y=Pressure9am))+geom_point(aes(shape=RainToday))
+grafico2 <- ggplot(data=ds, aes(x=Temp9am, y=Pressure9am))+geom_point(aes(color=RainToday))
+grafico3 <- grafico2 + labs(title = "Presión 9am frente a temperatura 9am", subtitle = "", x = "Temperatura", y = "Presión")
+grafico3
 ggsave('figs/Ejercicio2.pdf')
 ```
 
@@ -186,6 +197,8 @@ ggsave('figs/Ejercicio2.pdf')
 * Almacena en formato **pdf** el gráfico resultante en un fichero denominado ``Ejercicio3.pdf``.
 
 ```{r Solucion ejercicio 3}
+load('data/iris_tidy.RData')
+
 
 ggsave('figs/Ejercicio3.pdf') # se almacena el último gráfico generado
 ```
