@@ -197,9 +197,8 @@ ggsave('figs/Ejercicio2.pdf')
 * Almacena en formato **pdf** el gráfico resultante en un fichero denominado ``Ejercicio3.pdf``.
 
 ```{r Solucion ejercicio 3}
-load('data/iris_tidy.RData')
-
-
+load('data/iris_tidy.Rdata')
+str(iris.tidy)
 ggsave('figs/Ejercicio3.pdf') # se almacena el último gráfico generado
 ```
 
