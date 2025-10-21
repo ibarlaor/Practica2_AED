@@ -199,6 +199,12 @@ ggsave('figs/Ejercicio2.pdf')
 ```{r Solucion ejercicio 3}
 load('data/iris_tidy.Rdata')
 str(iris.tidy)
+iris.grafico1 <- ggplot(data=iris.tidy, mapping=aes(x=Species, y=Value)) + geom_point()
+iris.grafico2 <- ggplot(data=iris.tidy, mapping=aes(x=Species, y=Value)) + geom_point(aes(color=Part))
+iris.grafico3 <- iris.grafico2 + facet_grid(Part~.)
+iris.grafico4 <- iris.grafico2 + facet_grid(.~Part)
+iris.grafico5 <- ggplot(data=iris.tidy, mapping=aes(x=Species, y=Value)) + geom_jitter(aes(color=Part))
+iris.grafico5
 ggsave('figs/Ejercicio3.pdf') # se almacena el último gráfico generado
 ```
 
